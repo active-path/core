@@ -1,14 +1,21 @@
 module ActivePath
   module Subscribers
     class Subscriber
-      attr_reader :buffer, :context, :options
+      attr_reader :context,
+                  :buffer,
+                  :options,
+                  :locals
 
       def call(name, started, finished, unique_id, payload)
-        @buffer = payload[:buffer]
         @context = payload[:context]
+        @buffer = payload[:buffer]
         @options = payload[:options]
+        @locals = payload[:locals]
         perform and begin
-          @buffer = @context = @options = nil
+          @context =
+          @buffer =
+          @options =
+          @locals = nil
         end
       end
 

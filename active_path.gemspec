@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.version     = ActivePath::VERSION
   s.date        = '2018-04-28'
   s.summary     = "ActivePath"
-  s.description = "Path hints and layout injection"
+  s.description = "ActivePath makes your frontend more extensible and easier to debug"
   s.authors     = ["Ryan Tulino"]
   s.email       = 'rtulino@gmail.com'
   s.files       = `git ls-files`.split("\n")
