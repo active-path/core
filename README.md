@@ -1,7 +1,24 @@
-# ActivePath: 
+# ActivePath
 ActivePath provides an interface for rendering your partials. 
 
-## Installation 
+
+## View Injection:
+
+https://github.com/active-path/view-injection
+
+
+## Path Hints:
+
+https://github.com/active-path/path-hints
+
+
+## Product Roadmap (TODO)
+
+* User docs
+* Specs and CI build
+
+
+## Custom Installation 
 
 Add to your Gemfile:
 
@@ -21,20 +38,18 @@ end
 
 ```
 
-## Product Roadmap (TODO)
+Now create a subscriber where you will have access to `context`, `buffer`, `options`, `locals` and subscribe to the `render_partial` event:
 
-* User docs
-* Specs and CI build
+```ruby
+require 'active_path/subscribers/subscriber'
+class Subscriber < ActivePath::Subscribers::Subscriber
+  def perform
+    ...
+  end
+end
+ActiveSupport::Notifications.subscribe(:render_partial, Subscriber.new)
+```
 
-
-## View Injection
-
-https://github.com/active-path/view-injection
-
-
-## Path Hints:
-
-https://github.com/active-path/path-hints
 
 --
 
